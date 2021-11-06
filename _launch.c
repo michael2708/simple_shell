@@ -12,7 +12,7 @@ int status;
 pid = fork();
 if (pid == 0)
 {
-if (execve(args[0], args, NULL) == -1)
+if (execvp(args[0], args) == -1)
 {
 perror("lsh");
 }
@@ -24,9 +24,7 @@ perror("lsh");
 }
 else
 {
-do {
 waitpid(pid, &status, WUNTRACED);
-} while (!WIFEXITED(status) && !WIFSIGNALED(status));
 }
 return (1);
 }

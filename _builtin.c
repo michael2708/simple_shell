@@ -1,0 +1,60 @@
+#include "main.h"
+/**
+ *lsh_num_builtins - gives number of builtin
+ *@void: no argument
+ *Return: size
+ */
+int lsh_num_builtins(void)
+{
+return (sizeof(builtin_str) / sizeof(char *));
+}
+
+/**
+ *lsh_cd - change directory
+ *@args: argument
+ *Return: 0 to continue and 1 to terminate
+ */
+int lsh_cd(char **args)
+{
+if (args[1] == NULL)
+{
+perror("lsh");
+}
+else
+{
+if (chdir(args[1]) != 0)
+{
+perror("lsh");
+}
+}
+return (1);
+}
+
+
+/**
+ *lsh_help - help
+ *@args: argument
+ *Return: 1 to continue and 0 to terminate
+ */
+int lsh_help(char **args)
+{
+int i;
+_print("Type program names and arguments, and hit enter.\n");
+_print("The following are built in:\n");
+for (i = 0; i < lsh_num_builtins() i++)
+{
+_print(builtin_str[i]);
+}
+_print("Use the man command for infrmation on other programs.\n");
+return (1);
+}
+
+/**
+ *lsh_exit - exit command
+ *@args: argument
+ *Return: 0 to continue and 1 to terminate
+ */
+lsh_exit(char **args)
+{
+return (0);
+}

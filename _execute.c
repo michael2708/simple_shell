@@ -7,17 +7,21 @@
  */
 int lsh_execute(char **args)
 {
-int i;
 if (args[0] == NULL)
 {
 return (1);
 }
-for (i = 0; i < lsh_num_builtins(); i++)
+if (_strcmp(args[0], "exit") == 0)
 {
-if (_strcmp(args[0], builtin_str[i]) == 0)
-{
-return ((*builtin_func[i])(args));
+return (lsh_exit(args));
 }
+if (_strcmp(args[0], "cd") == 0)
+{
+return (lsh_cd(args));
+}
+if (_strcmp(args[0], "help") == 0)
+{
+return (lsh_help(args));
 }
 return (lsh_launch(args));
 }

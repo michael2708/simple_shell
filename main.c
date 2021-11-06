@@ -5,7 +5,7 @@
  *@argv: arguments
  *Return: Always Success
  */
-int main(int argc, char **argv)
+int main(int argc __attribute__((unused)), char **argv __attribute__((unused)))
 {
 lsh_loop();
 return (EXIT_SUCCESS);

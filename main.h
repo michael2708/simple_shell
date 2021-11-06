@@ -18,18 +18,8 @@ int lsh_launch(char **args);
 int lsh_cd(char **args);
 int lsh_help(char **args);
 int lsh_exit(char **args);
-int lsh_num_builtins(void);
 int lsh_execute(char **args);
 int _strcmp(char *s1, char *s2);
 void *_realloc(void *ptr, unsigned int new_size);
-
-char *builtin_str[] = {"cd", "help", "exit"};
-
-int (*builtin_func[]) (char **) = {
-&lsh_cd,
-&lsh_help,
-&lsh_exit
-};
-
 
 #endif
